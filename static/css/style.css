@@ -15,11 +15,17 @@ body {
 
 h1, .account, .account-word {
     font-weight: 500;
-    color: #140335;   
+    color: #140335;
 }
 
 h1 {
     font-size: 3rem;
+    text-decoration: none;  
+}
+
+
+a:hover {
+    text-decoration: none;
 }
 
 .account {
@@ -49,3 +55,18 @@ h1 {
     font-size: 1.3rem;
     color: #140335;
 }
+
+.btn,
+.btn:visited {
+    background-color:#140335;
+    border-color: blueviolet;
+    border: 1px;
+}
+
+.btn:hover {
+    background-color:blueviolet;
+    border-color: #140335;
+}
+
+/* wine page */
+

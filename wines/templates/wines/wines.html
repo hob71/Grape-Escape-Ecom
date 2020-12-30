@@ -9,14 +9,14 @@
             <h1>Wines and all</h1>
         </div>
         {% for wine in wines %}
-        <div>
-            <div class="card mx" style="width: 18rem;">
-                <img src="{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}">
+        <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0.5">
+            <div class="card mx-auto" style="width: 17rem; height: 18rem;">
+                <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top" alt="{{ wine.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
-                    <p class="card-text">{{ wine.description }}</p>
+                    <p class="card-text" style="height: 6rem;">{{ wine.description }}</p>
                     <p class="card-text">£{{ wine.price }}</p>
-                    <a href="#" class="btn btn-primary">Buy</a>
+                    <a href="#" class="btn btn-primary my-auto">Buy</a>
                 </div>
             </div>
         </div>
