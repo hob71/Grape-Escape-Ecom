@@ -59,6 +59,18 @@
                             <a href="#" class="dropdown-item">Register</a>
                         </div>
                     </li>
+                    
+                    <li class="list-inline-item">
+                        <a class="{% if basket_count %}font-weight-bold{% endif %} nav-link" href="{% url 'basket' %}">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
+                                <p class="my-0">
+                                    0
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                   
                 </ul>
             </div>
         </div>
