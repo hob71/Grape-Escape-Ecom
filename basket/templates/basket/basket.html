@@ -10,13 +10,20 @@
         </div>
     </div>
     <div class="row">
-        {% for wine in wines %}
-        <div class="col-lg-4">
-            <img src="{{ wine.image }}">
+        {% if basket_item %}
+        <div class="row">
+            Total amount
         </div>
-        <div><p>{{ wine.name }}</p></div>
-        <div><p>{{ wine.price }}</p></div>
-        {% endfor %}
+        <div class="row">
+            items
+        </div>
+        <div class="row">
+            Total amount
+        </div>
+        {% else %}
+        <h3>You have not selected any products</h3>
+        <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+        {% endif %}
     </div>
 </div>
 
