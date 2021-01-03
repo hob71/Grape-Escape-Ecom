@@ -14,30 +14,39 @@
         {% if basket_item %}
         <div class="row">
             <div class="col-6">Number of items:{{ basket_count }}</div>
-            <div class="col-6">Total Price:{{ basket_total }}</div>
+            <div class="col-6">Total Price: £{{ basket_total }}</div>
+        </div>
+        <div class="container">Delivery: £{{ delivery_costs }}</div>
+        <div class="container">Grand Total: £{{ grand_total }}</div>
+        <div class="mx-1 my-1">
+            <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+        </div>
+        <div class="mx-1 my-1">
+            <a href="" class="btn">Checkout</a>
         </div>
 
         {% for item in basket_item %}
         <div class="row">
             <tr>
-            <td>
-                <img src="{{ item.wine.image }}" alt="{{ item.wine.name }}">
-            </td>
-            <td>
-                {{ item.wine.name }}
-            </td>
-            <td>
-                £{{ item.wine.price }}
-            </td>
-            <td>
-                <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}">
-                    {% csrf_token %}
-                <input class="form-control qty_input" type="number" name="quantity" value="{{item.quantity}}" min="1" max="99" data-item_id="{{ item.item.id }}" id="id_qty_{{ item.item.id }}">
-                </form>
-            </td>
+                <td>
+                    <img src="{{ item.wine.image }}" alt="{{ item.wine.name }}">
+                </td>
+                <td>
+                    {{ item.wine.name }}
+                </td>
+                <td>
+                    £{{ item.wine.price }}
+                </td>
+                <td>
+                    <form class="form update-form" method="POST" action="{% url 'update_basket' item.item_id %}">
+                        {% csrf_token %}
+                        <input class="form-control qty_input" type="number" name="quantity" value="{{item.quantity}}"
+                            min="1" max="99" data-item_id="{{ item.item.id }}" id="id_qty_{{ item.item.id }}">
+                    </form>
+                </td>
 
-            <td><a class="update-link text-info">Update</a></td>
-            <td><a class="remove-item" id="remove_{{ item.item_id }}">Remove</a></td>
+                <td><a class="update-link text-info">Update</a></td>
+                <td><a class="remove-item" id="remove_{{ item.item_id }}">Remove</a></td>
             </tr>
         </div>
 
@@ -47,17 +56,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-6">Number of items:{{ basket_count }}</div>
-                <div class="col-6">Total Price:{{ basket_total }}</div>
+                <div class="col-6">Total Price: £{{ basket_total }}</div>
             </div>
+            <div class="container">Delivery: £{{ delivery_costs }}</div>
+            <div class="container">Grand Total: £{{ grand_total }}</div>
+        </div>
+        <div class="mx-1 my-1">
+            <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+        </div>
+        <div class="mx-1 my-1">
+            <a href="" class="btn">Checkout</a>
         </div>
     </div>
 
-    <div class="mx-1 my-1">
-        <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
-    </div>
-    <div class="mx-1 my-1">
-        <a href="" class="btn">Checkout</a>
-    </div>
+
     {% else %}
     <h3>You have not selected any products</h3>
     <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
@@ -68,22 +80,22 @@
 {% block postloadjs %}
 <script type="text/javascript">
     // Update quantity on click
-    $('.update-link').click(function(e) {
+    $('.update-link').click(function (e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Remove item and reload on click
-    $('.remove-item').click(function(e) {
+    $('.remove-item').click(function (e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/basket/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken};
+        var data = { 'csrfmiddlewaretoken': csrfToken };
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
+            .done(function () {
+                location.reload();
+            });
     })
 </script>
 
