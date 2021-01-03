@@ -9,23 +9,57 @@
             <h1>Basket</h1>
         </div>
     </div>
+
     <div class="row">
         {% if basket_item %}
         <div class="row">
-            Total amount
+            <div class="col-6">Number of items:{{ basket_count }}</div>
+            <div class="col-6">Total Price:{{ basket_total }}</div>
         </div>
+
+        {% for item in basket_item %}
         <div class="row">
-            items
+            <div>
+                <img src="{{ item.wine.image }}" alt="{{ item.wine.name }}">
+            </div>
+            <div>
+                {{ item.wine.name }}
+            </div>
+            <div>
+                £{{ item.wine.price }}
+            </div>
+            <div >
+                {{ item.quantity }}
+            </div>
+            <div class="input-group">
+                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99"
+                    data-item_id="{{ wine.id }}" id="id_qty_{{ wine.id }}">
+            </div>
         </div>
+
+
+        {% endfor %}
+
         <div class="row">
-            Total amount
+            <div class="row">
+                <div class="col-6">Number of items:{{ basket_count }}</div>
+                <div class="col-6">Total Price:{{ basket_total }}</div>
+            </div>
         </div>
-        {% else %}
-        <h3>You have not selected any products</h3>
-        <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
-        {% endif %}
     </div>
+
+    <div class="mx-1 my-1">
+        <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+    </div>
+    <div class="mx-1 my-1">
+        <a href="" class="btn">Checkout</a>
+    </div>
+    {% else %}
+    <h3>You have not selected any products</h3>
+    <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+    {% endif %}
 </div>
+
 
 
 {% endblock %}

@@ -10,13 +10,29 @@
         </div>
         {% for wine in wines %}
         <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0.5">
-            <div class="card mx-auto" style="width: 17rem; height: 18rem;">
+            <div class="card mx-auto" style="width: 17rem; height: 21rem;">
                 <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top" alt="{{ wine.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
                     <p class="card-text" style="height: 6rem;">{{ wine.description }}</p>
                     <p class="card-text">£{{ wine.price }}</p>
-                    <a href="#" class="btn btn-primary my-auto">Buy</a>
+                    <form class="form" action="{% url 'item_to_basket' wine.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-6">
+                                <p class="mx-auto"><strong>Quantity:</strong></p>
+                                <div class="form-group w-60">
+                                    <div class="input-group">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ wine.id }}" id="id_qty_{{ wine.id }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <input type="submit" class="btn mt-4 mx-3" value="Buy">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

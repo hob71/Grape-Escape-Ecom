@@ -43,23 +43,13 @@ a:hover {
   min-height: 100vh;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-}
 
-.footer-info {
-    font-weight: 500;
-    font-size: 1.3rem;
-    color: #140335;
-}
 
 .btn,
 .btn:visited {
     background-color:#140335;
     border-color: blueviolet;
+    color: #fff;
     border: 1px;
 }
 
@@ -72,5 +62,23 @@ a {
     color: #140335;
 }
 
-/* wine page */
+
+
+
+
+
+
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+
+.footer-info {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #140335;
+}
 
