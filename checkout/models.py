@@ -36,6 +36,8 @@ class order(models.Model):
         return self.order_number
 
 
+# orderlineitem taken from Code Institue miniproject
+
 class orderlineitem(models.Model):
     order = models.ForeignKey(order, null=False, blank=False, on_delete=models.CASCADE, related_name='ordered_item')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
