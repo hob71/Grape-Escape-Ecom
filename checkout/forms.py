@@ -9,10 +9,10 @@ class orderform(forms.ModelForm):
                   'lastname',
                   'email',
                   'phone_number',
-                  'postcode',
                   'town',
                   'street_address1',
                   'street_address2',
+                  'postcode',
                   'county',
                   'country',)
 
@@ -27,10 +27,10 @@ class orderform(forms.ModelForm):
             'lastname': 'Surname',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
-            'postcode': 'Postcode',
             'town': 'Town',
             'street_address1': 'Street Line 1',
             'street_address2': 'Street Line 2',
+            'postcode': 'Postcode',
             'county': 'County',
             'country': 'Country'
         }

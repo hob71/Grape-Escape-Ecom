@@ -22,7 +22,7 @@
             <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
         </div>
         <div class="mx-1 my-1">
-            <a href="" class="btn">Checkout</a>
+            <a href="{% url 'checkout' %}" class="btn">Checkout</a>
         </div>
 
         {% for item in basket_item %}
@@ -65,7 +65,7 @@
             <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
         </div>
         <div class="mx-1 my-1">
-            <a href="" class="btn">Checkout</a>
+            <a href="{% url 'checkout' %}" class="btn">Checkout</a>
         </div>
     </div>
 

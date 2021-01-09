@@ -9,6 +9,76 @@
             <h1>Checkout</h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <p class="text-muted">Please fill out the form below to complete your order</p>
+            <form action="{% url 'checkout' %}" method="POST" id="payment">
+                {% csrf_token %}
+                <div>
+                    <p>Details and Delivery</p>
+                    {{ orderform.firstname | as_crispy_field }}
+                    {{ orderform.lastname | as_crispy_field }}
+                    {{ orderform.email | as_crispy_field }}
+                    {{ orderform.phone_number | as_crispy_field }}
+                    {{ orderform.street_address1 | as_crispy_field }}
+                    {{ orderform.street_address2 | as_crispy_field }}
+                    {{ orderform.town | as_crispy_field }}
+                    {{ orderform.postcode | as_crispy_field }}
+                    {{ orderform.county | as_crispy_field }}
+                    {{ orderform.country | as_crispy_field }}
+                    <div>
+                        {% if user.is_authenticated %}
+                        <label class="form-check-label" for="id-save-info">Save this delivery information to my
+                            profile</label>
+                        <input class="form-check-input" type="checkbox" id="save-details" name="save-details"
+                            checked>
+                        {% else %}
+                        <label class="form-check-label" for="id-save-info">
+                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save your information
+                        </label>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row text-black text-right">
+                    <div class="col-7 offset-2">
+                        <p class="my-0">Order Total: </p>
+                        <p class="my-0">Delivery Costs: </p>
+                        <p class="my-0">Grand Total: </p>
+                    </div>
+                    <div class="col-3">
+                        <p class="my-0">£{{ basket_total | floatformat:2 }}</p>
+                        <p class="my-0">£{{ delivery_costs | floatformat:2 }}</p>
+                        <p class="my-0"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
+                    </div>
+                </div>
+                <div class="px-3">
+                    <p class="fieldset-label small text-black px-2 w-auto">Payment</p>
+                    <!-- A Stripe card element will go here -->
+                    <div class="mb-3" id="card-information"></div>
+                    <!-- Used to display form errors -->
+                    <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    <!-- Pass the client secret to the view so we can get the payment intent id -->
+                    <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                </div>
+
+                <div class="btn">
+                    <button id="submit-btn" class="btn">
+                        <span class="font-weight-bold">Complete Order</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="mx-1 my-1">
+                    <a href="{% url 'basket' %}" class="btn">View Basket</a>
+                </div>
+                <div class="mx-1 my-1">
+                    <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
