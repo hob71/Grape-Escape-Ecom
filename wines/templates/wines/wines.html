@@ -10,8 +10,8 @@
         </div>
         {% for wine in wines %}
         <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0.5">
-            <div class="card mx-auto" style="width: 17rem; height: 21rem;">
-                <img src="{{ MEDIA_URL }}noimage.jpg" class="card-img-top" alt="{{ wine.name }}">
+            <div class="card mx-auto" style="width: 17rem; height: 35rem;">
+                <img src="{{ MEDIA_URL }}/{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}" />
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
                     <p class="card-text" style="height: 6rem;">{{ wine.description }}</p>
