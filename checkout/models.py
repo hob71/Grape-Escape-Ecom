@@ -23,7 +23,7 @@ class order(models.Model):
 
     def get_total(self):
         delivery_cost = 5.00
-        self.order_total = self.ordered_item.aggregate(Sum('ordered_item_total'))['ordered_item_total__sum']
+        self.order_total = self.ordered_item.aggregate(Sum('ordered_item_total'))['ordered_item_total__sum'] or 0
         self.grand_total = self.order_total + delivery_cost
         self.save()
 
