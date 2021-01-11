@@ -19,13 +19,44 @@ h1, .account, .account-word {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 5rem;
     text-decoration: none;  
+}
+
+h2 {
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.nav-name {
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #140335;  
 }
 
 img {
     width: 4rem;
     height: 15rem;
+}
+
+.welcome {
+    font-size: 2rem;
+    margin-top: 30px;
+    padding: 14px;
+    font-family: 'Raleway', sans-serif;
+    background: rgba(13, 13, 14, 0.2);
+}
+
+.week {
+    width:80%;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+ul {
+    padding-left: 0;
 }
 
 a:hover {
@@ -62,7 +93,8 @@ a:hover {
     border-color: #140335;
 }
 
-a {
+a,
+.navbar-toggle-icon {
     color: #140335;
 }
 
