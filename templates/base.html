@@ -51,21 +51,27 @@
                                 <p class="account-word">My Account</p>
                             </div>
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Logout</a>
-                            <a href="#" class="dropdown-item">Login</a>
-                            <a href="#" class="dropdown-item">Register</a>
+                        <div class="dropdown-menu" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'add_product' %}" class="dropdown-item">Stock Management</a>
+                            {% endif %}
+                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            {% endif %}
                         </div>
                     </li>
                     {% if basket_item %}
                     <li class="list-inline-item">
                         <a class="{% if basket_count %}font-weight-bold{% endif %} nav-link" href="{% url 'basket' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                                 <p class="my-0">
                                     {{ basket_count }}
                                 </p>
+                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
                             </div>
                         </a>
                     </li>
@@ -90,11 +96,8 @@
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link" href="{% url 'wines' %}" id="navbarDropdown" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        Wines
-                                    </a>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{% url 'wines' %}">Wines and All</a>
                                 </li>
                             </ul>
                         </div>
