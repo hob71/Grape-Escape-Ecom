@@ -1,6 +1,8 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import Product
 from .forms import wineform
+# From Code Institue mini project
+from django.contrib.auth.decorators import login_required
 
 
 def all_wines(request):
@@ -14,6 +16,7 @@ def all_wines(request):
     return render(request, 'wines/wines.html', context)
 
 
+@login_required
 def add_wine(request):
 
     if request.method == 'POST':
@@ -33,6 +36,7 @@ def add_wine(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_wine(request, product_id):
     wine = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -52,6 +56,7 @@ def edit_wine(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_wine(request, product_id):
     wine = get_object_or_404(Product, pk=product_id)
     wine.delete()
