@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h2>Management - Add Wines</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <form class="add" action="{% url 'add_wine' %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="mb-5">
+                        <a class="btn" href="{% url 'wines' %}" role="button">Cancel</a>
+                        <button class="btn" type="submit">Add Wine</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
