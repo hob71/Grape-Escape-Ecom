@@ -5,12 +5,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center mb-5">
+        <div class="col-12 text-center mb-6">
             <h2>Wines and all</h2>
         </div>
         {% for wine in wines %}
         <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0.5">
-            <div class="card mx-auto" style="width: 17rem; height: 35rem;">
+            <div class="card mx-auto" style="width: 17rem; height: 37rem;">
                 <img src="{{ MEDIA_URL }}/{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}" />
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
@@ -32,6 +32,16 @@
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
+                        {% if request.user.is_superuser %}
+                        <div class="row mb-3">
+                            <div class="col-6 text-center">
+                                <a href="{% url 'edit_wine' wine.id %}">Edit</a>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="{% url 'delete_wine' wine.id %}">Delete</a>
+                            </div>
+                        </div>
+                        {% endif %}
                     </form>
                 </div>
             </div>
