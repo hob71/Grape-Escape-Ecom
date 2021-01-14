@@ -50,3 +50,9 @@ def edit_wine(request, product_id):
     }
 
     return render(request, template, context)
+
+
+def delete_wine(request, product_id):
+    wine = get_object_or_404(Product, pk=product_id)
+    wine.delete()
+    return redirect(reverse('wines'))
