@@ -4,10 +4,13 @@ from basket.context import basket_contents
 from django.conf import settings
 from wines.models import Product
 from .models import order, orderlineitem
+from profiles.models import UserProfile
+from profiles.forms import profileform
+from django.contrib import messages
 
 import stripe
 
-# Stripe items taken from Stripe and Code Institue miniproject
+# Stripe items taken from Stripe and Code Institue tutorial
 
 
 def checkout(request):
@@ -57,7 +60,20 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-    order_form = orderform()
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.get(user=request.user)
+            order_form = orderform(initial={
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'town': profile.default_town,
+                    'postcode': profile.default_postcode,
+                    'county': profile.default_county,
+                    'country': profile.default_country,
+                })
+        else:
+            order_form = orderform()
 
     template = 'checkout/checkout.html'
     context = {
@@ -88,10 +104,11 @@ def checkout_success(request, order_number):
                 'default_street_address2': order.street_address2,
                 'default_county': order.county,
             }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            user_profile_form = profileform(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
+# message taken from Code Institute tutorial
     messages.success(request, f'Order has been processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
