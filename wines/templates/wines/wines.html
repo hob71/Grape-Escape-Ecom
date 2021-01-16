@@ -14,6 +14,8 @@
                 <img src="{{ MEDIA_URL }}/{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}" />
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
+                    <p class="card-text" style="height: 6rem;">{{ wine.wine_type }}</p>
+                    <p class="card-text" style="height: 6rem;">{{ wine.wine_region.name }}</p>
                     <p class="card-text" style="height: 6rem;">{{ wine.description }}</p>
                     <p class="card-text">£{{ wine.price }}</p>
                     <form class="form" action="{% url 'item_to_basket' wine.id %}" method="POST">

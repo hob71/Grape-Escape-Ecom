@@ -1,5 +1,11 @@
 from django.shortcuts import render
+from wines.models import Product
 
 
 def index(request):
-    return render(request, 'home/index.html')
+    wines = Product.objects.all()
+
+    context = {
+        'wines': wines,
+    }
+    return render(request, 'home/index.html', context)
