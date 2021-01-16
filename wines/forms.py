@@ -6,7 +6,7 @@ class wineform(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ('cat',
+        fields = ('wine_type',
                   'name',
                   'description',
                   'price',

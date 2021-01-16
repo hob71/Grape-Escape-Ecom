@@ -4,7 +4,7 @@ from .models import Product
 
 class ProdAdmin(admin.ModelAdmin):
     list_display = (
-        'cat',
+        'wine_type',
         'name',
         'description',
         'price',
