@@ -21,22 +21,17 @@
                 <div class="week text-center">
                     <strong>Wine of the Week</strong>
                 </div>
-                before
                 {% for wine in wines %}
-                Print
-                <div class="card mx-auto" style="width: 18rem;">
+                <div class="card mx-auto" style="width: 14rem">
                     {% if wine.offer == True %}
                     <img src="{{ MEDIA_URL }}/{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ wine.name }}</h5>
-                        <p class="card-text">{{ wine.description }}</p>
+                        <h5 class="card-title fs-4 text-center">{{ wine.name }}</h5>
                         <a href="{% url 'wines' %}" class="btn">Shop</a>
-                                            {% endif %}
                     </div>
-
+                    {% endif %}
                 {% endfor %}
                 </div>
-                
             </div>
         </div>
     </div>
