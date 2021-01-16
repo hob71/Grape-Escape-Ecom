@@ -19,7 +19,8 @@
 
     {% block corejs %}
     <script src="https://kit.fontawesome.com/f51253fd7a.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -34,75 +35,90 @@
 
 <body>
     <div id="page-container">
-    <header class="container-fluid">
-        <div class="row header-info">
-            <div class="col-12 col-lg-6 my-auto lg-text-left">
-                <a href="{% url 'home' %}">
-                    <h1>Grape Escape</h1>
-                </a>
-            </div>
-            <div class="col-12 col-lg-6 my-auto lg-text-right">
-                <ul>
-                    <li class="list-inline-item dropdown">
-                        <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            <div class="text-center mt-4">
-                                <div><i class="account fas fa-user fa-lg"></i></div>
-                                <p class="account-word">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                            <a href="{% url 'add_wine' %}" class="dropdown-item">Management</a>
+        <header class="container-fluid">
+            <div class="row header-info">
+                <div class="col-12 col-lg-6 my-auto lg-text-left">
+                    <a href="{% url 'home' %}">
+                        <h1>Grape Escape</h1>
+                    </a>
+                </div>
+                <div class="col-12 col-lg-6 my-auto lg-text-right">
+                    <ul>
+                        <li class="list-inline-item dropdown">
+                            <a class="nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <div class="text-center mt-4">
+                                    <div><i class="account fas fa-user fa-lg"></i></div>
+                                    <p class="account-word">My Account</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                <a href="{% url 'add_wine' %}" class="dropdown-item">Management</a>
 
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    {% if basket_item %}
-                    <li class="list-inline-item">
-                        <a class="{% if basket_count %}font-weight-bold{% endif %} nav-link" href="{% url 'basket' %}">
-                            <div class="text-center">
-                                <p class="my-0">
-                                    {{ basket_count }}
-                                </p>
-                                <div><i class="mt-2 fas fa-shopping-basket fa-lg"></i></div>
-                            </div>
-                        </a>
-                    </li>
-                    {% endif %}
-                   
-                </ul>
-            </div>
-        </div>
 
-        <div class="container-fluid">
-            <div class="row nav-row">
-                <nav class="navbar navbar-expand-lg w-100">
-                    <div class="container-fluid">
-                        
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-name nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-name nav-link" aria-current="page" href="{% url 'wines' %}">Wines</a>
-                                </li>
+
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Management
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'add_wine' %}">Wine</a></li>
+                                <li><a class="dropdown-item" href="{% url 'add_region' %}">Region</a></li>
+                                <li><a class="dropdown-item" href="{% url 'add_cheese' %}">Cheese</a></li>
                             </ul>
                         </div>
-                    </div>
-                </nav>
+
+
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        {% endif %}
+                </div>
+                </li>
+                {% if basket_item %}
+                <li class="list-inline-item">
+                    <a class="{% if basket_count %}font-weight-bold{% endif %} nav-link" href="{% url 'basket' %}">
+                        <div class="text-center">
+                            <p class="my-0">
+                                {{ basket_count }}
+                            </p>
+                            <div><i class="mt-2 fas fa-shopping-basket fa-lg"></i></div>
+                        </div>
+                    </a>
+                </li>
+                {% endif %}
+
+                </ul>
             </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row nav-row">
+            <nav class="navbar navbar-expand-lg w-100">
+                <div class="container-fluid">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-name nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-name nav-link" aria-current="page" href="{% url 'wines' %}">Wines</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
+    </div>
     </header>
 
     {% block page_content %}
@@ -110,19 +126,22 @@
 
     {% block new-items %}
     {% endblock %}
-
-    {% block postloadjs %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-    {% endblock %}
-
     <footer id="footer">
         <div class="container-fluid">
-            <div class="row align-items-center mt-5 mb-2">
+            <div class="row align-items-center mt-6 mb-2">
                 <div class="footer-info col-lg-4 text-lg-left">Copyright © RH Websites 2020</div>
             </div>
         </div>
     </footer>
-</div>
+
+    {% block postloadjs %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    {% endblock %}
+
+
+    </div>
 </body>
 
 </html>
