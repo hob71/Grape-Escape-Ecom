@@ -19,3 +19,29 @@ For the owner / administrator of the site they will have the functionality to ad
 * Owner can a add new items to the site through a front end form.
 * Owner will have the ability to update or delete an item.
 * Owner options only available / viewable from admin account.
+
+
+## User ideas:
+* "I should be able to buy more than one bottle from the main order page"
+* "Should be able to create an account and login when site is next used"
+* "Once I have placed a wine in the basket I should be able to remove the item if I change my mind"
+* "If I own the site the ability to manipulate the products, ie delete, edit and add products"
+* "Pay for products through credit/debit card and receive a confirmation email"
+* "Show how many items I have in my basket"
+* "Navigation around the site should be easy"
+
+
+## Requirements:
+The requirements for the application are as follows:
+* Navigation bar across all pages.
+* Account dropdown with create account, log in and log off.
+* Basket icon with basket information displayed.
+* Buy button and quantity changer.
+* Add product option.
+* Edit product option.
+* Delete product option.
+* Remove from basket option.
+* Prices for individual products x quantity are calculated.
+* Grand total is calculated.
+* Email notification of purchase.
+* Card payment function.
