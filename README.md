@@ -45,3 +45,22 @@ The requirements for the application are as follows:
 * Grand total is calculated.
 * Email notification of purchase.
 * Card payment function.
+
+
+## Design:
+The design is a multi page website. All pages will be available the a general user except for the add page which is only available to owner / administrator. 
+In addition the options for deleting a product and or editting will only appear  from the owner / administrator.
+Page will appear through the various button, ie from wine page you can link to the basket and then basket to checkout and back again.
+The wines are displayed in individual cards with an image, name, description and price. The basket will show the wine information again with the option to chance quantity or remove complete item. Individual totals and grand total is also displayed.
+The checkout will display the grand total and a crsipy form for shipping detals. Wine addition page also contains a cripy form.
+
+
+### Layout:
+* Base layer - this consists of the title, navbar, account nav, basket and footer and will be the same across all pages. On smaller devices the navbar headers change to a collapsable icon.
+* Index/Home - the contains a welcome message * Solvent / Consumables - here you will see what is available in stock. A record of number of item will be displayed and there is the functionality to search, edit and delete items. 
+The search function is not case sensitive and will display the results after button press or return key pressed. The display will change to show results, show how many results are displayed and addition button to show all records again.
+Edit will take you to edit page and delete will take you to a confirmation edit page.
+* Edit page - allows you to edit any field and submit. On submit you are returned to the solvent or consumable page.
+* Requests - displays a form, details can be entered and submitted the request page.
+* Add solvents / consumables - is a form page which allows new products t be entered and submitted to the database.
+* New Requests - a page which displays all new requests as cards with details of what is needed to be ordered. Once ordered requested can be cleared by pressing the ordered button.
