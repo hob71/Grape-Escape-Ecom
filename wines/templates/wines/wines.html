@@ -5,18 +5,20 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center mb-6">
+        <div class="col-12 text-center mb-5">
             <h2>Wines and all</h2>
         </div>
         {% for wine in wines %}
-        <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0.5">
-            <div class="card mx-auto" style="width: 17rem; height: 37rem;">
+        <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0. mb-35">
+            <div class="card mx-auto" style="width: 17rem; height: 41rem;">
                 <img src="{{ MEDIA_URL }}/{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}" />
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
-                    <p class="card-text" style="height: 6rem;">{{ wine.wine_type }}</p>
-                    <p class="card-text" style="height: 6rem;">{{ wine.wine_region.name }}</p>
-                    <p class="card-text" style="height: 6rem;">{{ wine.description }}</p>
+                    <p class="card-text" style="height: 1rem;">{{ wine.wine_type }}</p>
+                    <p class="card-text modal-dialog modal-dialog-scrollable" style="height: 1rem;">
+                        Region: {{ wine.wine_region.name }}</p>
+                    <p class="card-text" style="height: 1rem;">Recommended cheese: {{ wine.recommended_cheese.name }}</p>
+                    <p class="card-text" style="height: 5.5rem;">{{ wine.description }}</p>
                     <p class="card-text">£{{ wine.price }}</p>
                     <form class="form" action="{% url 'item_to_basket' wine.id %}" method="POST">
                         {% csrf_token %}
@@ -25,7 +27,8 @@
                                 <p class="mx-auto"><strong>Quantity:</strong></p>
                                 <div class="form-group w-60">
                                     <div class="input-group">
-                                        <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ wine.id }}" id="id_qty_{{ wine.id }}">
+                                        <input class="form-control qty_input" type="number" name="quantity" value="1"
+                                            min="1" max="99" data-item_id="{{ wine.id }}" id="id_qty_{{ wine.id }}">
                                     </div>
                                 </div>
                             </div>

@@ -3,10 +3,12 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from wines.models import Product
+from profiles.models import UserProfile
 
 
 class order(models.Model):
     order_number = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders') # added from Code institute tutorial
     firstname = models.CharField(max_length=20, null=False, blank=False)
     lastname = models.CharField(max_length=30, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -47,7 +49,7 @@ class orderlineitem(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.ordered_item_total = self.wine.price * self.quantity
+        self.ordered_item_total = self.wines.price * self.quantity
         super().save(*args, **kwargs)
 
         def __str__(self):

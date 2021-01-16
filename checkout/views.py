@@ -34,7 +34,7 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save()
             for item_id, quantity in basket.items():
-                product = Product.objects.get(id=item_id)
+                product = Products.objects.get(id=item_id)
 
                 order_line_item = orderlineitem(
                     order=order,
