@@ -88,33 +88,35 @@ The wireframe document can be found at [wireframes]().
 ## Testing:
 Testing was carried out on the functions required for the user. These included  adding records, editting records, deleting record and finding number of records in collection.
 * Screen shot of records.
-![Screen shot before adding record]()
+![Screen shot before adding record](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/wines_before.PNG)
 
 * Added additional recorded, new record displayed.
-![Screen shot after record added and counter increases]()
+![Screen shot after record added and counter increases](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/after_addition.PNG)
 
 * For the addition it is the same process for cheeses and regions.
 
 * Pressed delete. Now one less record.
-![Screen shot of delete confirmation]()
+![Screen shot of delete confirmation](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/after_deletion.PNG)
 
 * Pressed edit icon and updated the record with a new price, before.
-![Screen shot of before edit. Comment added.]()
+![Screen shot of before edit. Comment added.](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/wine_details_before_edit_of_price.PNG)
 
 * Pressed edit icon and updated the record with a new price, after.
-![Screen shot of editted record. Comment added.]()
+![Screen shot of editted record. Comment added.](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/price_change_after_edit.PNG)
 
-* Screen shot of new page with search.
-![Screen shot before search.]()
+* Walkthrough
 
-* After search records are returned. Additional button appears to show all records again and number of records found displayed.
-![Screen shot after search.]()
+* Screen shot of basket.
+![Screen shot of items in basket and price.](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/basket.PNG)
 
-* Active requests page with one entry.
-![Screen shot of requests page before addition]()
+* Screen shot of checkout page.
+![Screen shot of checkout.](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/checkout.PNG)
 
-* Requests page after ne request placed.
-![Requests page after new entry]()
+* After successful payment, thank you screen.
+![Screen shot of thank you screen](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/thank_you_message.PNG)
+
+* Stripe payment screen.
+![Confirmation payment has gone to stripe](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/stripe_payment.PNG)
 
 ## Bugs:
 **Problem-**
