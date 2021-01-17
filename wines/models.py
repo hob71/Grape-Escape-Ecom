@@ -31,7 +31,7 @@ class Region(models.Model):
         verbose_name_plural = 'Regions'
 
     name = models.CharField(max_length=150, null=False, blank=False)
-    description = models.CharField(max_length=400, null=False, blank=False)
+    description = models.CharField(max_length=800, null=False, blank=False)
 
     def __str__(self):
         return self.name
@@ -43,7 +43,7 @@ class Cheese(models.Model):
         verbose_name_plural = 'Cheeses'
 
     name = models.CharField(max_length=150, null=False, blank=False)
-    description = models.CharField(max_length=400, null=False, blank=False)
+    description = models.CharField(max_length=800, null=False, blank=False)
 
     def __str__(self):
         return self.name
