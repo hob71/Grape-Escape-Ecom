@@ -87,19 +87,21 @@ The wireframe document can be found at [wireframes]().
 
 ## Testing:
 Testing was carried out on the functions required for the user. These included  adding records, editting records, deleting record and finding number of records in collection.
-* Screen shot of database records.
+* Screen shot of records.
 ![Screen shot before adding record]()
 
-* Added additional recorded, new record displayed and number of item has increased.
+* Added additional recorded, new record displayed.
 ![Screen shot after record added and counter increases]()
 
-* Pressed delete icon, confirmation page displays.and then deleted entry., Now one less record and number of items changed.
+* For the addition it is the same process for cheeses and regions.
+
+* Pressed delete. Now one less record.
 ![Screen shot of delete confirmation]()
 
-* Entry deleted. Now one less record and number of items changed.
-![Screen shot after deletion of record and counter decrease]()
+* Pressed edit icon and updated the record with a new price, before.
+![Screen shot of before edit. Comment added.]()
 
-* Pressed edit icon and updated the record with a comment.
+* Pressed edit icon and updated the record with a new price, after.
 ![Screen shot of editted record. Comment added.]()
 
 * Screen shot of new page with search.
@@ -131,8 +133,9 @@ Images not displaying on wine.html page.
 Corrected path for media.
 
 **Problem-**
-
+Stripe payment was not going through.
 **Fix-**
+I had two types of order, used wrong naming convention. Changed variable to my_order = ******.
 
 **Problem-**
 
@@ -148,6 +151,7 @@ Corrected path for media.
 * Sqlite3
 * Fontawesome
 * Stripe
+* Pillow
 
 ## Deployment:
 The project was developed in Gitpod and pushed to GitHub and Heroku.
@@ -183,6 +187,8 @@ The code in the deployed version is the same as my gitpod repository.
 * Thanks go to the author of the background image. Background photo created by Jill Wellington. 
 * Thanks to Waitrose website, used images and part descriptions for test purposes.
 * Thanks to Code Institute and Stripe for parts of code especially around Stripe.
+* Cheese information taken from https://www.cheese.com/
+* Wine information taken from [About France website](https://about-france.com/wines.htm)
 
 
 ## Acknowledge:
