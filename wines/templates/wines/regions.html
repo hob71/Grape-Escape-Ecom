@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h2>Regions</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Region</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                {% for region in regions %}
+                <tbody>
+                    <tr>
+                        <td>{{ region.name}}</td>
+                        <td>{{ region.description}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+        <div>
+        <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

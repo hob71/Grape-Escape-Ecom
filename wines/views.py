@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .models import Product
+from .models import Product, Region, Cheese
 from .forms import wineform, regionform, cheeseform
 # From Code Institue mini project login_required
 from django.contrib.auth.decorators import login_required
@@ -14,6 +14,28 @@ def all_wines(request):
     }
 
     return render(request, 'wines/wines.html', context)
+
+
+def regions(request):
+
+    regions = Region.objects.all()
+
+    context = {
+        'regions': regions,
+    }
+
+    return render(request, 'wines/regions.html', context)
+
+
+def cheeses(request):
+
+    cheeses = Cheese.objects.all()
+
+    context = {
+        'cheeses': cheeses,
+    }
+
+    return render(request, 'wines/cheeses.html', context)
 
 
 @login_required

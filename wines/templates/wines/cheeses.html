@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center mb-5">
+            <h2>Cheeses</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th scope="col">Cheese</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                {% for cheese in cheeses %}
+                <tbody>
+                    <tr>
+                        <td>{{ cheese.name}}</td>
+                        <td>{{ cheese.description}}</td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+        <div>
+        <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

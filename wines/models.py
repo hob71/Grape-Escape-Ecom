@@ -32,7 +32,6 @@ class Region(models.Model):
 
     name = models.CharField(max_length=150, null=False, blank=False)
     description = models.CharField(max_length=400, null=False, blank=False)
-    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
