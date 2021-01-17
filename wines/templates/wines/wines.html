@@ -14,7 +14,7 @@
 
         {% for wine in wines %}
         <div class="col-md-6 col-lg-4 col-xl-3 my-2 mx-0. mb-35">
-            <div class="card mx-auto" style="width: 17rem; height: 44rem;">
+            <div class="card mx-auto" style="width: 17rem; height: 50rem;">
                 <img src="{{ MEDIA_URL }}/{{ wine.image }}" class="card-img-top" alt="{{ wine.name }}" />
                 <div class="card-body">
                     <h5 class="card-title">{{ wine.name }}</h5>
@@ -24,10 +24,10 @@
                     <p><a href="{% url 'regions' %}" class="card-text" style="height: 1rem;">
                         Region: {{ wine.wine_region.name }}</a></p>
 
-                    <p><a href="{% url 'cheeses' %}" class="card-text" style="height: 1rem;">Recommended cheese: {{ wine.recommended_cheese.name }}
+                    <p><a href="{% url 'cheeses' %}" class="card-text" style="height: 4rem;">Recommended cheese: {{ wine.recommended_cheese.name }}
                     </a></p>
 
-                    <p class="card-text" style="height: 5.5rem;">{{ wine.description }}</p>
+                    <p class="card-text" style="height: 8rem;">{{ wine.description }}</p>
                     <p class="card-text">£{{ wine.price }}</p>
                     <form class="form" action="{% url 'item_to_basket' wine.id %}" method="POST">
                         {% csrf_token %}
