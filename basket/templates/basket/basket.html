@@ -47,10 +47,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 result"><strong>Number of items:{{ basket_count }}</strong></div>
-                <div class="col-6 text-right result"><strong>Total Price: £{{ basket_total }}</strong></div>
             </div>
-            <div class="container text-right result"><strong>Delivery: £{{ delivery_costs }}</strong></div>
-            <div class="container text-right result"><strong>Grand Total: £{{ grand_total }}</strong></div>
+            <div>
+            <div class="text-left result"><strong>Total Price: £{{ basket_total }}</strong></div>
+            <div class="text-left result"><strong>Delivery: £{{ delivery_costs }}</strong></div>
+            <div class="text-left result"><strong>Grand Total: £{{ grand_total }}</strong></div>
+            </div>
         </div>
         <div class="mx-1 my-1">
             <a href="{% url 'wines' %}" class="btn">Continue Shopping</a>
