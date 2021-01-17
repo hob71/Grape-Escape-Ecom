@@ -1,0 +1,13 @@
+Hello,
+
+Thank you for shopping with Grape Escape.
+
+Your order number is {{ order.order_number }}.
+
+Total with delivery is £{{ order.grand_total }}.
+
+Please visit us again soo and we hope you enjoy the wine.
+
+Best Wishes,
+
+Grape Escape Team.

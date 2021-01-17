@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404, HttpResponse
 from .forms import orderform
 from basket.context import basket_contents
 from django.conf import settings
@@ -7,6 +7,7 @@ from .models import order, orderlineitem
 from profiles.models import UserProfile
 from profiles.forms import profileform
 from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 import stripe
 
@@ -37,7 +38,7 @@ def checkout(request):
         if order_form.is_valid():
             order = order_form.save()
             for item_id, quantity in basket.items():
-                product = Products.objects.get(id=item_id)
+                product = Product.objects.get(id=item_id)
 
                 order_line_item = orderlineitem(
                     order=order,
@@ -87,22 +88,22 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     save_profile = request.session.get('save_profile')
-    order = get_object_or_404(order, order_number=order_number)
+    my_order = get_object_or_404(order, order_number=order_number)
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        order.user_profile = profile
-        order.save()
+        my_order.user_profile = profile
+        my_order.save()
 
         if save_profile:
             profile_data = {
-                'default_phone_number': order.phone_number,
-                'default_country': order.country,
-                'default_postcode': order.postcode,
-                'default_town_or_city': order.town_or_city,
-                'default_street_address1': order.street_address1,
-                'default_street_address2': order.street_address2,
-                'default_county': order.county,
+                'default_phone_number': my_order.phone_number,
+                'default_country': my_order.country,
+                'default_postcode': my_order.postcode,
+                'default_town_or_city': my_order.town_or_city,
+                'default_street_address1': my_order.street_address1,
+                'default_street_address2': my_order.street_address2,
+                'default_county': my_order.county,
             }
             user_profile_form = profileform(profile_data, instance=profile)
             if user_profile_form.is_valid():
@@ -111,14 +112,26 @@ def checkout_success(request, order_number):
 # message taken from Code Institute tutorial
     messages.success(request, f'Order has been processed! \
         Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+        email will be sent to {my_order.email}.')
 
     if 'basket' in request.session:
         del request.session['basket']
 
     template = 'checkout/checkout_success.html'
     context = {
-        'order': order,
+        'order': my_order,
     }
 
     return render(request, template, context)
+
+
+@require_POST
+def cache_checkout_data(request):
+    pid = request.POST.get('client_secret').split('_secret')[0]
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    stripe.PaymentIntent.modify(pid, metadata={
+        'username': request.user,
+        'save_details': request.POST.get('save-details',)
+#        'basket': json.dumps(request.session.get(basket, {})),
+    })
+    return HttpResponse(status=200)
