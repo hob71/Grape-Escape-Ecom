@@ -140,7 +140,7 @@ Stripe payment was not going through.
 I had two types of order, used wrong naming convention. Changed variable to my_order = ******.
 
 **Problem-**
-
+Three bars on mobile menu icon not showing.
 **Fix-**
 
 ## Technologies used:
@@ -179,10 +179,19 @@ Final 'push' is the change of debug=TRUE to debug=FALSE.
 
 Below are links to my GitHub and Heroku published sites.
 
-#### Published site: https://inventory-manager-mp3.herokuapp.com/
-#### GitHub site: https://github.com/hob71/inventory-manager-mp3
+#### Published site: 
+#### GitHub site: https://github.com/hob71/Grape-Escape-Ecom
 
 The code in the deployed version is the same as my gitpod repository.
+
+
+## Future:
+Looking at future changes to the site the following could be added:
+* On payment to stripe include billing and shipping information.
+* Improve notifications when button are clicked.
+* Added a rating section and comments section to the wines for customer feedback.
+* Multiple images of bottle, ie close up of label.
+
 
 ## Credits:
 * Font Awesome for icons.
