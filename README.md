@@ -56,11 +56,138 @@ The checkout will display the grand total and a crsipy form for shipping detals.
 
 
 ### Layout:
-* Base layer - this consists of the title, navbar, account nav, basket and footer and will be the same across all pages. On smaller devices the navbar headers change to a collapsable icon.
-* Index/Home - the contains a welcome message * Solvent / Consumables - here you will see what is available in stock. A record of number of item will be displayed and there is the functionality to search, edit and delete items. 
-The search function is not case sensitive and will display the results after button press or return key pressed. The display will change to show results, show how many results are displayed and addition button to show all records again.
-Edit will take you to edit page and delete will take you to a confirmation edit page.
-* Edit page - allows you to edit any field and submit. On submit you are returned to the solvent or consumable page.
-* Requests - displays a form, details can be entered and submitted the request page.
-* Add solvents / consumables - is a form page which allows new products t be entered and submitted to the database.
-* New Requests - a page which displays all new requests as cards with details of what is needed to be ordered. Once ordered requested can be cleared by pressing the ordered button.
+* Base layer contains title, navbar, account and basket (which appears if an item is present). Account has a dropdown menu with management, profile, log in, log out and register.
+* Home page displays a welcome message and also a wine of the week with button to link to wines page.
+* Wines pages displays cards with hold an image, name, description, price, type, region, recommended cheese, quantity and buy button. From this by clicking on the cheese or region you can see more information.
+* Basket shows you what you have ordered, the quantity, total price of items, delivery costs and grand total. Also a checkout and continue shopping button.
+* Checkout has a form and total, shipping and grand total costs. Checkout, continue shopping, view basket buttons. Option to save profile.
+* Checkout success page has thank you message and return to shopping site.
+* The cheese and region pages are tables which contain the name and description. Button to return to shopping page.
+
+
+## Images:
+* Main image is by Kymellis [Unsplash.com website](https://unsplash.com/@kymellis?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kym Ellis"https://unsplash.com/s/photos/winery?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash NOT USED Image by Jill Wellington from Pixabay)
+* Example images just for testing taken from [Waitrose website](https://www.waitrose.com/)
+
+
+## Fonts:
+[Google Fonts](https://fonts.google.com).
+The fonts used with the website were and Dancing Script and Raleway. Dancing script was mainly used as I thought the style matched to nice wines.
+
+
+## Colours:
+The colours which I have used are in keeping with the main image of the red grapes.
+They are:
+* #140335. Navbar title, account, basket and all writing is in a purple shade.
+
+
+## Wireframe:
+The wireframes are an initial representation of how I designed the layout. There have been a few changes during th process but essentially the wireframe matches the production app.
+The wireframe document can be found at [wireframes]().
+
+## Testing:
+Testing was carried out on the functions required for the user. These included  adding records, editting records, deleting record and finding number of records in collection.
+* Screen shot of database records.
+![Screen shot before adding record]()
+
+* Added additional recorded, new record displayed and number of item has increased.
+![Screen shot after record added and counter increases]()
+
+* Pressed delete icon, confirmation page displays.and then deleted entry., Now one less record and number of items changed.
+![Screen shot of delete confirmation]()
+
+* Entry deleted. Now one less record and number of items changed.
+![Screen shot after deletion of record and counter decrease]()
+
+* Pressed edit icon and updated the record with a comment.
+![Screen shot of editted record. Comment added.]()
+
+* Screen shot of new page with search.
+![Screen shot before search.]()
+
+* After search records are returned. Additional button appears to show all records again and number of records found displayed.
+![Screen shot after search.]()
+
+* Active requests page with one entry.
+![Screen shot of requests page before addition]()
+
+* Requests page after ne request placed.
+![Requests page after new entry]()
+
+## Bugs:
+**Problem-**
+Card on front page not displaying any information.
+**Fix-**
+Under investigation - fix was I had not imported the views to the home page.
+
+**Problem-**
+Buttons not working on lower part of screen.
+**Fix-**
+Footer was blocking buttons. Added a margin bottom to push footer down.
+
+**Problem-**
+Images not displaying on wine.html page.
+**Fix-**
+Corrected path for media.
+
+**Problem-**
+
+**Fix-**
+
+**Problem-**
+
+**Fix-**
+
+## Technologies used:
+* HTML
+* CSS
+* Javascript
+* Bootstrap
+* Django
+* Python
+* Sqlite3
+* Fontawesome
+* Stripe
+
+## Deployment:
+The project was developed in Gitpod and pushed to GitHub and Heroku.
+
+To deploy my Inventory Manager project in Heroku the process was as follows:-
+
+Opened Heroku in the browser.
+* Logged in with my username and password.
+* Selected 'new' and 'create new app'.
+* Created the name for the app, inventory-manager-mp3. Name has to be unique.
+* Chose the region, Europe.
+* Opened terminal window in gitpod and logged into heroku using 'heroku login -i'
+* Entered my email address and password used to log into heroku app.
+* In terminal window typed 'git remote heroku' and the URL provide by Heroku for my app.
+* Create a 'requirements.txt' file and 'Procfile'.
+* Start up a web process by typing heroku ps:scale web=1 in the terminal.
+* In heroku opened up 'settings' and entered in config variables. The IP and PORT.
+* In addition in variables connected the MONGO_URI.
+
+The gitignore file contains a env.py file which holds the log in path for Mongodb.
+
+Final 'push' is the change of debug=TRUE to debug=FALSE.
+
+Below are links to my GitHub and Heroku published sites.
+
+#### Published site: https://inventory-manager-mp3.herokuapp.com/
+#### GitHub site: https://github.com/hob71/inventory-manager-mp3
+
+The code in the deployed version is the same as my gitpod repository.
+
+## Credits:
+* Font Awesome for icons.
+* Thanks go to the author of the background image. Background photo created by Jill Wellington. 
+* Thanks to Waitrose website, used images and part descriptions for test purposes.
+* Thanks to Code Institute and Stripe for parts of code especially around Stripe.
+
+
+## Acknowledge:
+I would like to say thank you to my mentor, , and the tutors and student care at the Code Institute for the help and support they gave me.
+
+
+## Final Notes and Future Additions:
+* 
