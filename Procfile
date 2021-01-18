@@ -1,0 +1,1 @@
+web: gunicorn grape_escape.wsgi:application
