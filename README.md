@@ -79,11 +79,12 @@ The fonts used with the website were and Dancing Script and Raleway. Dancing scr
 The colours which I have used are in keeping with the main image of the red grapes.
 They are:
 * #140335. Navbar title, account, basket and all writing is in a purple shade.
+* #b9d8b4. Cheese and Region table background colour to make text stand out.
 
 
 ## Wireframe:
 The wireframes are an initial representation of how I designed the layout. There have been a few changes during th process but essentially the wireframe matches the production app.
-The wireframe document can be found at [wireframes]().
+The wireframe document can be found at [wireframes](https://github.com/hob71/Grape-Escape-Ecom/tree/master/wireframes).
 
 ## Testing:
 Testing was carried out on the functions required for the user. These included  adding records, editting records, deleting record and finding number of records in collection.
