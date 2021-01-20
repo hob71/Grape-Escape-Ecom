@@ -179,7 +179,7 @@ Final 'push' is the change of debug=TRUE to debug=FALSE.
 
 Below are links to my GitHub and Heroku published sites.
 
-#### Published site: 
+#### Published site: https://grape-escape-ecom.herokuapp.com/
 #### GitHub site: https://github.com/hob71/Grape-Escape-Ecom
 
 The code in the deployed version is the same as my gitpod repository.
