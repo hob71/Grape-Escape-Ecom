@@ -120,6 +120,18 @@ Testing was carried out on the functions required for the user. These included  
 * Stripe payment screen.
 ![Confirmation payment has gone to stripe](https://github.com/hob71/Grape-Escape-Ecom/blob/master/media/stripe_payment.PNG)
 
+* Tested email on registration and received following mail back:
+
+Hello from example.com!
+
+You're receiving this e-mail because user woohoo has given your e-mail address to register an account on example.com.
+
+To confirm this is correct, go to https://grape-escape-ecom.herokuapp.com/accounts/confirm-email/Mg:1l2KRo:bww4mU27nCmw6e9ioeIVLV0CkBsDw69WtIB26p-2K74/
+
+Thank you for using example.com!
+example.com
+
+
 ## Bugs:
 **Problem-**
 Card on front page not displaying any information.
