@@ -86,6 +86,7 @@ They are:
 The wireframes are an initial representation of how I designed the layout. There have been a few changes during th process but essentially the wireframe matches the production app.
 The wireframe document can be found at [wireframes](https://github.com/hob71/Grape-Escape-Ecom/tree/master/wireframes).
 
+
 ## Testing:
 Testing was carried out on the functions required for the user. These included  adding records, editting records, deleting record and finding number of records in collection.
 * Screen shot of records.
@@ -138,11 +139,16 @@ Corrected path for media.
 **Problem-**
 Stripe payment was not going through.
 **Fix-**
-I had two types of order, used wrong naming convention. Changed variable to my_order = ******.
+I had two types of order, used wrong naming convention. Changed variable to my_order = order.xxxxxxxx
 
 **Problem-**
 Three bars on mobile menu icon not showing.
 **Fix-**
+
+**Problem-**
+Images not displaying on heroku after linking with aws.
+**Fix-**
+Images were causing a 404 GET error. When setting the link to the MEDIA storage added addtional / so it was 'xxxxx/media//name of wine' being used.
 
 ## Technologies used:
 * HTML
@@ -155,28 +161,28 @@ Three bars on mobile menu icon not showing.
 * Fontawesome
 * Stripe
 * Pillow
+* Boto3
+* Psycopg2
 
 ## Deployment:
 The project was developed in Gitpod and pushed to GitHub and Heroku.
 
-To deploy my Inventory Manager project in Heroku the process was as follows:-
+To deploy my Grape Escape project in Heroku the process was as follows:-
 
 Opened Heroku in the browser.
 * Logged in with my username and password.
 * Selected 'new' and 'create new app'.
-* Created the name for the app, inventory-manager-mp3. Name has to be unique.
+* Created the name for the app, grape-escape-ecom. Name has to be unique.
 * Chose the region, Europe.
 * Opened terminal window in gitpod and logged into heroku using 'heroku login -i'
 * Entered my email address and password used to log into heroku app.
 * In terminal window typed 'git remote heroku' and the URL provide by Heroku for my app.
-* Create a 'requirements.txt' file and 'Procfile'.
-* Start up a web process by typing heroku ps:scale web=1 in the terminal.
-* In heroku opened up 'settings' and entered in config variables. The IP and PORT.
-* In addition in variables connected the MONGO_URI.
+* Create a 'Procfile'. Requirementstxt was already created.
+* Start up Amazon aws for storage.
+* Added config variables to the heroku app, stripe secret keys, aws secret keys and the postgres database.
+* Select connect to git hub and automatic deployment in case of any changes.
 
-The gitignore file contains a env.py file which holds the log in path for Mongodb.
-
-Final 'push' is the change of debug=TRUE to debug=FALSE.
+Final 'push' is the change of debug=TRUE to debug=False.
 
 Below are links to my GitHub and Heroku published sites.
 
@@ -197,15 +203,11 @@ Looking at future changes to the site the following could be added:
 ## Credits:
 * Font Awesome for icons.
 * Thanks go to the author of the background image. Background photo created by Jill Wellington. 
-* Thanks to Waitrose website, used images and part descriptions for test purposes.
+* Thanks to Waitrose website, used images and part descriptions for test purposes only.
 * Thanks to Code Institute and Stripe for parts of code especially around Stripe.
 * Cheese information taken from https://www.cheese.com/
-* Wine information taken from [About France website](https://about-france.com/wines.htm)
+* Wine region information taken from [About France website](https://about-france.com/wines.htm), [Wine Searcher website](https://www.wine-searcher.com/regions) and [Wikipedia website](https://en.wikipedia.org/wiki).
 
 
 ## Acknowledge:
-I would like to say thank you to my mentor, , and the tutors and student care at the Code Institute for the help and support they gave me.
-
-
-## Final Notes and Future Additions:
-* 
+I would like to say thank you to my mentor, Simen Daehlin, and the tutors and student care at the Code Institute for the help and support they gave me.
